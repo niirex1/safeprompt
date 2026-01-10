@@ -1,53 +1,47 @@
-# SafePrompt
+# SafePrompt CCS Artifact (tables + architecture)
 
-SafePrompt is a template-constrained repair pipeline for Solidity vulnerabilities. It couples detection with patch synthesis and validation: a localized context graph is extracted, applicable verified repair templates are retrieved, candidates are decoded under template-induced constraints, and a repair is accepted only if it passes compilation, ABI and storage compatibility checks, project tests, and template-derived SMT obligations.
+This package is meant for double-blind review. It contains:
+- The SafePrompt architecture figure used in the paper (`figures/safeprompt_architecture.png`).
+- CSV files that encode every numeric table reported in the manuscript sections on evaluation.
+- Deterministic scripts that regenerate the tables from the CSVs.
 
-This repository is the companion artifact for the SafePrompt manuscript.
+## What this artifact reproduces
 
-## Pipeline (as in the paper)
+Running the scripts reproduces the following paper tables from CSV:
+- Table 2: Reentrancy repair evaluation
+- Table 3: Price-manipulation repair evaluation (+ false-positive breakdown)
+- Table 4: Reentrancy comparison
+- Table 5: Price-manipulation comparison (D1 benchmark)
+- Table 6: Ablation study
+- Table 7: Read-only reentrancy evaluation
 
-1. **Context extraction**: build the Repair Context Graph (RCG) for a localized vulnerable site using external-call attributes, control reachability, and storage read/write dependencies.
-2. **Template mining and retrieval**: rank and select applicable templates for the site using predicates over the RCG.
-3. **Template-constrained decoding**: compile the chosen template instance into a DFA and apply hard masking during decoding.
-4. **Layered validation**: accept a patch only if it passes all gates:
-   - compilation
-   - ABI and storage stability
-   - project tests
-   - template-induced SMT postconditions (bounded semantics, configurable loop-unroll depth, solver timeout default 10s)
+The generated files are written to:
+- `outputs/tables_md/` (markdown)
+- `outputs/tables_tex/` (LaTeX)
 
-Accepted repairs emit a unified diff, discharged SMT obligations, and counterexamples when SMT fails.
-
-## Evaluation (summary)
-
-The evaluation is organized around four research questions:
-
-- **RQ1**: functional correctness and safety compliance under the four acceptance gates.
-- **RQ2**: efficiency (end-to-end time, candidate count, validation overhead) under fixed budgets.
-- **RQ3**: comparison against state-of-the-art dynamic analysis tools and repair baselines.
-- **RQ4**: ablations of key components:
-  - RCG-based applicability filtering and retrieval
-  - template-to-DFA hard masking during decoding
-  - layered validation with SMT postconditions
-
-Datasets used in the paper:
-- **Vulnerable**: all vulnerable functions in the held-out repair set (N = 780). The repair set includes 268 reentrancy and 214 authorization vulnerabilities; the remaining instances cover arithmetic and logic faults.
-- **Non-vulnerable High-Complexity**: top 1,100 non-vulnerable functions by estimated gas and control-flow size (from the same projects, with vulnerable functions removed).
-- **Non-vulnerable Regular**: 20,000 randomly sampled non-vulnerable functions (from the same projects, with vulnerable functions removed).
-
-## Repository layout
-
-- `safeprompt/` Core pipeline and CLI.
-- `graph/` RCG schema, Gremlin server config, and graph queries for context extraction.
-- `templates/` Template specs, actions, and compilation to DFA constraints.
-- `decode/` Constrained decoding (DFA masking, beam utilities).
-- `validate/` Acceptance gates (compile, ABI/storage, tests, SMT) and artifact emission.
-- `baselines/` Baseline runners and adapters (includes a Clue adapter placeholder).
-- `configs/` Default pipeline and evaluation configs.
-- `docs/` Reproducibility notes, dataset notes, template and SMT specs.
-
-## Quickstart (local)
+## Quick start (about 1 minute)
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate
-pip install -e .
+source .venv/bin/activate  # on Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+python scripts/reproduce_tables.py
+python scripts/verify_outputs.py
+```
+
+If verification succeeds, the regenerated outputs match the expected hashes shipped in `docs/expected_hashes.json`.
+
+## Data files
+
+All table CSVs are in `data/`. Units:
+- `gas_delta_M_*` values are in **millions of gas** (M), as reported in the manuscript tables.
+- Times are in seconds unless a cell explicitly shows ms.
+
+See `docs/DATA_FORMAT.md` for column descriptions.
+
+## Notes for reviewers
+
+- The CSVs are derived from the final numbers reported in the manuscript.
+- The scripts are deterministic and do not depend on network access.
+- The full end-to-end patch synthesis and SMT checking pipeline depends on the released victim-contract and trace corpora referenced by the paper, plus the SafePrompt implementation itself. This artifact focuses on the numeric-result layer used to produce the manuscript tables.
