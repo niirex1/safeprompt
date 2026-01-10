@@ -1,0 +1,4 @@
+dataset,size,avg_candidates_mean,avg_candidates_std,gas_delta_M_mean,gas_delta_M_std,repair_time_s_mean,repair_time_s_std,tp,fn,tn,fp,tp_percent,fn_percent,tn_percent,fp_percent
+Vulnerable,152,21.4,8.9,0.27,0.45,24.7,13.6,146.0,6.0,,,96.05,3.95,,
+High-Complexity,1075,9.1,4.3,0.06,0.17,7.3,5.8,,,1058.0,17.0,,,98.42,1.58
+Regular,19989,4.8,2.4,0.01,0.06,3.1,2.6,,,19885.0,104.0,,,99.48,0.52

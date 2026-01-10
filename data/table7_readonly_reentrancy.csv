@@ -1,0 +1,4 @@
+dataset,size,avg_candidates_mean,avg_candidates_std,gas_delta_M_mean,gas_delta_M_std,repair_time_s_mean,repair_time_s_std,tp,fn,tn,fp
+Attack,2,6.7,2.1,0.11,0.14,10.2,4.1,2.0,0.0,,
+High-Gas,1100,3.1,1.7,0.04,0.09,4.7,2.0,,,1094.0,6.0
+Regular,20000,0.6,0.3,0.01,0.05,2.2,1.0,,,19973.0,27.0

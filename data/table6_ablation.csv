@@ -1,0 +1,6 @@
+setting,accepted_repairs,tp_percent,fn_percent,cand_per_instance,high_complexity_tn,high_complexity_fp,regular_tn,regular_fp,fp_percent,mean_time_s
+Full system (baseline),2310,99.63,0.37,6.8,1089,11,19960,40,0.21,6.4
+Omit RCG filtering,2310,99.63,0.37,17.9,1065,35,19821,179,1.07,12.9
+Omit DFA hard masking,2210,95.79,4.21,11.4,1073,27,19911,89,0.58,9.6
+Omit certificate checking,2447,100.0,0.0,28.8,926,174,19102,898,4.2,5.2
+Omit RCG + $\mathsf{Check}_v$,2447,100.0,0.0,37.1,817,283,18922,1078,5.34,4.6

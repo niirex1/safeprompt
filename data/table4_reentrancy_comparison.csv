@@ -1,0 +1,8 @@
+system,role,analysis_or_repair_time,flagged_tp_fp,confirmed_reentrancy,accepted_repairs,tp_percent,fn_percent,tn_percent,fp_percent
+TxSpector,detector,217±101 ms,49080,2447,,100.0,0.0,99.94,0.06
+Sereum,detector,1.03 s (99%<4 s),3357,2447,,99.36,0.64,99.97,0.03
+Clue,detector,"30±1,683 ms",2323,2447,,99.61,0.39,99.98,0.02
+EVMPatch,repair,0.74±0.41 s,3912,2447,1965.0,98.08,1.92,99.86,0.14
+Elysium,repair,1.21±0.66 s,3506,2447,2044.0,98.74,1.26,99.88,0.12
+AROC,repair,2.87±1.54 s,3104,2447,2018.0,98.93,1.07,99.9,0.1
+SafePrompt,repair,6.4±3.9 s,2784,2447,2310.0,99.63,0.37,99.99,0.01
