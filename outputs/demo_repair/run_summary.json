@@ -1,0 +1,45 @@
+{
+  "contract": "ReentrancyVictim.sol",
+  "function": "withdraw",
+  "vuln_class": "reentrancy",
+  "predicates": {
+    "has_external_call": true,
+    "has_state_write": true,
+    "has_require_guard": true
+  },
+  "attempted": [
+    {
+      "operator": "cei_reorder",
+      "family": "reentrancy",
+      "meta": {
+        "pattern": "cei_reorder",
+        "moved_line": "(bool ok,) = msg.sender.call{value: amount}(\"\");"
+      },
+      "accepted": true,
+      "certificate": {
+        "vuln_class": "reentrancy",
+        "operator": "cei_reorder",
+        "function": "withdraw",
+        "diff_unified": "",
+        "predicates": {
+          "has_external_call": true,
+          "has_state_write": true,
+          "has_require_guard": true
+        },
+        "postconditions": {
+          "compiles_placeholder": true,
+          "abi_compatible": true,
+          "reentrancy_guard_present": true
+        },
+        "notes": "ok"
+      }
+    }
+  ],
+  "accepted": {
+    "operator": "cei_reorder",
+    "meta": {
+      "pattern": "cei_reorder",
+      "moved_line": "(bool ok,) = msg.sender.call{value: amount}(\"\");"
+    }
+  }
+}

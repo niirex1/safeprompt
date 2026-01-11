@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Table 5: Price-manipulation comparison on D1 benchmark.}
+\label{tab:price_compare_d1}
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{System} & \textbf{TP_pct} & \textbf{FN_pct} & \textbf{Avg_candidates} & \textbf{Vuln_TP} & \textbf{Vuln_FN} & \textbf{Benign_FP} & \textbf{Time_s} \\
+\midrule
+DeFiRanger & 100.0 & 0.0 & - & 152 & 0 & 5 & 0.19±0.15 \\
+TXHunt & 95.39 & 4.61 & - & 145 & 7 & 13 & 0.92±0.41 \\
+DeFiPoser & 91.45 & 8.55 & - & 139 & 13 & 22 & 2.34±1.03 \\
+DeFiTainter & 88.82 & 11.18 & - & 135 & 17 & 19 & 1.47±0.66 \\
+SafePrompt & 96.05 & 3.95 & 21.4±8.9 & 146 & 6 & 4 & 24.7±13.6 \\
+\bottomrule
+\end{tabular}
+\end{table}

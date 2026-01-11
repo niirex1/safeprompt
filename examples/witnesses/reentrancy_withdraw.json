@@ -1,0 +1,6 @@
+{
+  "vuln_class": "reentrancy",
+  "function": "withdraw",
+  "external_call_line": 0,
+  "state_write_line": 0
+}

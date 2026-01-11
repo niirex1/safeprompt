@@ -1,11 +1,16 @@
 {
-  "outputs/tables_md/table2_reentrancy_repair.md": "e46088d82c1d5923ef1e4aefcf7b05db2bcf58b06749ad8082fe928b50853544",
-  "outputs/tables_md/table3_fp_breakdown.md": "73ea5131a65c842acc262fd506ad1848a826fa16174119d73a862051298cc45d",
-  "outputs/tables_md/table3_price_manip_repair.md": "7e543d3964e8a310fa17461869db99fc61c9da5be00be3969066df06629073c7",
-  "outputs/tables_md/table4_reentrancy_comparison.md": "5b4b1d80eb4430c17a108e187913581b357adbf51e120cb626acc9da6d200e2f",
-  "outputs/tables_md/table5_price_manip_comparison.md": "c053fca56f4389632b0cec8a9a284c6c3a225ef6e05f4239fa6feb4506f5f30a",
-  "outputs/tables_md/table6_ablation.md": "a633f3314e6e9f252612a6c3b76e4d6b3f14051798f9cc10e3ab8b2b82268def",
-  "outputs/tables_md/table7_readonly_reentrancy.md": "20ca841f7ffce06d931be5f07dea90cafe664a08c603702eb377bf054e9158c0",
-  "outputs/tables_tex/table2_reentrancy_repair.tex": "ecef5d356623ed49d7131bceabfcc57ea170d388bb62bcf6e651e8d6ad37a413",
-  "outputs/tables_tex/table3_price_manip_repair.tex": "c3bc6175b600e5f572673fdb5a112d96fe8321cfe68295e5ebb83a82fcccdddc"
+  "outputs/tables_md/table2_reentrancy.md": "c554707c34256425e002f90b59df230ff799115015e9441c57f1451a00a00db1",
+  "outputs/tables_md/table3_price_manip.md": "f05e8137a318df578ddfd93e249102730dc9274a1e52ca9ecadbb6d444d41ff3",
+  "outputs/tables_md/table3_price_manip_fp_breakdown.md": "ca96afd595a7a05bff7b9b3231295b38affe35d87ad3e05a8d9e42d9b54be619",
+  "outputs/tables_md/table4_reentrancy_comparison.md": "a28d805865b6687014bd3ee300dfc7c83f3ce48390a8c689c448ad21682ea033",
+  "outputs/tables_md/table5_price_manip_comparison_d1.md": "43a14f9e900863dfa3ef77cbd56f28015b28626ed569a9f0d3fe899c229e2aec",
+  "outputs/tables_md/table6_ablation.md": "d4360b548d42a0a78689d47a41ffe68d0b8c2024a41590fd015310dcc880ae77",
+  "outputs/tables_md/table7_readonly_reentrancy.md": "93a8a0526cb327428afee2932504b6a35e4ecae49b96588a8dcd6f8fb38c4c15",
+  "outputs/tables_tex/table2_reentrancy.tex": "c021f68749b56902a7add537c71e6fa76d3638c756863d008e16e516a9d55be7",
+  "outputs/tables_tex/table3_price_manip.tex": "df3ecd383c54030ad9e9aa78395d41365e79a32256bb8be59382158919c94017",
+  "outputs/tables_tex/table3_price_manip_fp_breakdown.tex": "00588d3de5c5d8d7adc0f316711f54ddf96a0957f1796ead9435ec1ed35f8ce4",
+  "outputs/tables_tex/table4_reentrancy_comparison.tex": "baa49f4a4dfdf0362cbcb124df9eb0ab88e5fcfb3c86a9bdf1816eff050118f4",
+  "outputs/tables_tex/table5_price_manip_comparison_d1.tex": "0468a1221a90b184acef55e67ac902140cf5e6204acd126fbcabb69727273222",
+  "outputs/tables_tex/table6_ablation.tex": "61001658cdd245d1c2a6e218f30601cbdaf1170ba8f659cd9afc857efddc2802",
+  "outputs/tables_tex/table7_readonly_reentrancy.tex": "85bd29b46d92f40f84fce69240b7a90042c4cd97a29e9c38d3d58fbacc505826"
 }

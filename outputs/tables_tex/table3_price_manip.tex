@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering
+\caption{Table 3: Price-manipulation repair evaluation (SafePrompt).}
+\label{tab:rq_price}
+\begin{tabular}{lcccccccc}
+\toprule
+\textbf{Split} & \textbf{Size} & \textbf{Avg_candidates} & \textbf{Gas_delta_M} & \textbf{Repair_time_s} & \textbf{TP} & \textbf{FN} & \textbf{TN} & \textbf{FP} \\
+\midrule
+Vulnerable & 152 & 21.4±8.9 & 0.38±0.51 & 24.7±13.6 & 146 & 6 & - & - \\
+High-complexity & 1075 & 11.6±5.2 & 0.09±0.17 & 7.1±5.8 & - & - & 1058 & 17 \\
+Regular & 19989 & 7.3±3.6 & 0.02±0.08 & 2.8±2.4 & - & - & 19885 & 104 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,4 +1,5 @@
-dataset,size,avg_candidates_mean,avg_candidates_std,gas_delta_M_mean,gas_delta_M_std,repair_time_s_mean,repair_time_s_std,tp,fn,tn,fp
-Attack,2,6.7,2.1,0.11,0.14,10.2,4.1,2.0,0.0,,
-High-Gas,1100,3.1,1.7,0.04,0.09,4.7,2.0,,,1094.0,6.0
-Regular,20000,0.6,0.3,0.01,0.05,2.2,1.0,,,19973.0,27.0
+Split,Example,Size,Gas_cost_M,Analysis_or_repair_time_s,TP,FN,TN,FP
+Attack (read-only reentrancy),sentiment.xyz,1,5.94±1.76,2.13±1.38,1,0,-,-
+Attack (read-only reentrancy),dForce,1,5.94±1.76,2.13±1.38,1,0,-,-
+High-gas benign,-,1077,0.24±0.29,0.09±0.05,-,-,1074,3
+Regular benign,-,19985,0.24±0.29,0.09±0.05,-,-,19941,44

@@ -1,52 +1,44 @@
 #!/usr/bin/env python3
-"""Verify artifact outputs match the shipped expected hashes.
-
-Usage:
-  python scripts/reproduce_tables.py
-  python scripts/verify_outputs.py
-"""
-
 from __future__ import annotations
 
-from pathlib import Path
-import hashlib
+import argparse
 import json
 import sys
+from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-EXPECTED = ROOT / "docs" / "expected_hashes.json"
+REPO_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO_ROOT))
 
-def sha256_file(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(1 << 20), b""):
-            h.update(chunk)
-    return h.hexdigest()
+from safeprompt.utils import sha256_file  # noqa: E402
 
-def main() -> int:
-    if not EXPECTED.exists():
-        print(f"Missing expected hashes: {EXPECTED}")
-        return 2
+def main():
+    p = argparse.ArgumentParser(description="Verify reproduced table outputs against expected hashes.")
+    p.add_argument("--expected", default=str(REPO_ROOT / "docs" / "expected_hashes.json"))
+    p.add_argument("--outputs", default=str(REPO_ROOT / "outputs"))
+    args = p.parse_args()
 
-    expected = json.loads(EXPECTED.read_text(encoding="utf-8"))
-    bad = []
-    for rel, want in expected.items():
-        p = ROOT / rel
-        if not p.exists():
-            bad.append((rel, "missing", want))
+    expected_path = Path(args.expected)
+
+    expected = json.loads(expected_path.read_text(encoding="utf-8"))
+    ok = True
+    for rel, h in expected.items():
+        path = REPO_ROOT / rel
+        if not path.exists():
+            print("MISSING:", rel)
+            ok = False
             continue
-        got = sha256_file(p)
-        if got != want:
-            bad.append((rel, got, want))
+        got = sha256_file(path)
+        if got != h:
+            print("MISMATCH:", rel)
+            print(" expected:", h)
+            print(" got     :", got)
+            ok = False
 
-    if bad:
-        print("Verification FAILED:")
-        for rel, got, want in bad:
-            print(f"  {rel}\n    got : {got}\n    want: {want}")
-        return 1
-
-    print("Verification OK: outputs match expected hashes.")
-    return 0
+    if ok:
+        print("OK: all outputs match expected hashes.")
+        return 0
+    print("Verification failed.")
+    return 1
 
 if __name__ == "__main__":
     raise SystemExit(main())

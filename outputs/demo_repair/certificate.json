@@ -1,0 +1,17 @@
+{
+  "vuln_class": "reentrancy",
+  "operator": "cei_reorder",
+  "function": "withdraw",
+  "diff_unified": "",
+  "predicates": {
+    "has_external_call": true,
+    "has_state_write": true,
+    "has_require_guard": true
+  },
+  "postconditions": {
+    "compiles_placeholder": true,
+    "abi_compatible": true,
+    "reentrancy_guard_present": true
+  },
+  "notes": "ok"
+}

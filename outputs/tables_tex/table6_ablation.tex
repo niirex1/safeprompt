@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Table 6: Ablation study.}
+\label{tab:ablation}
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Setting} & \textbf{Accepted_repairs} & \textbf{TP_pct} & \textbf{FN_pct} & \textbf{Cand_per_inst} & \textbf{High_complexity_TN} & \textbf{High_complexity_FP} & \textbf{Regular_TN} & \textbf{Regular_FP} & \textbf{All_benign_FP_pct} & \textbf{E2E_time_s} \\
+\midrule
+Full system (baseline) & 2310 & 99.63 & 0.37 & 6.8 & 1089 & 11 & 19960 & 40 & 0.21 & 6.4±3.9 \\
+Omit RCG filtering (\S3.6) & 2241 & 99.59 & 0.41 & 19.0 & 1061 & 39 & 19887 & 113 & 0.61 & 7.8±4.6 \\
+Omit DFA hard masking (\S4.1) & 2186 & 99.44 & 0.56 & 14.7 & 1072 & 28 & 19915 & 85 & 0.44 & 9.3±5.2 \\
+Omit certificate checking (\S4.2) & 2428 & 99.71 & 0.29 & 7.1 & 1021 & 79 & 19768 & 232 & 1.19 & 4.9±2.8 \\
+Omit RCG + Check_v & 2356 & 99.66 & 0.34 & 12.6 & 985 & 115 & 19694 & 306 & 1.62 & 5.6±3.1 \\
+\bottomrule
+\end{tabular}
+\end{table}

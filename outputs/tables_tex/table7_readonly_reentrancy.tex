@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Table 7: Read-only reentrancy evaluation.}
+\label{tab:readonly}
+\begin{tabular}{lcccccccc}
+\toprule
+\textbf{Split} & \textbf{Example} & \textbf{Size} & \textbf{Gas_cost_M} & \textbf{Analysis_or_repair_time_s} & \textbf{TP} & \textbf{FN} & \textbf{TN} & \textbf{FP} \\
+\midrule
+Attack (read-only reentrancy) & sentiment.xyz & 1 & 5.94±1.76 & 2.13±1.38 & 1 & 0 & - & - \\
+Attack (read-only reentrancy) & dForce & 1 & 5.94±1.76 & 2.13±1.38 & 1 & 0 & - & - \\
+High-gas benign & - & 1077 & 0.24±0.29 & 0.09±0.05 & - & - & 1074 & 3 \\
+Regular benign & - & 19985 & 0.24±0.29 & 0.09±0.05 & - & - & 19941 & 44 \\
+\bottomrule
+\end{tabular}
+\end{table}

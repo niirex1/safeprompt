@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Table 4: Reentrancy comparison against prior systems.}
+\label{tab:reentrancy_compare}
+\begin{tabular}{lcccccccc}
+\toprule
+\textbf{System} & \textbf{Analysis_or_repair_time} & \textbf{Flagged} & \textbf{Confirmed_reentrancy} & \textbf{Accepted_repairs} & \textbf{TP_pct} & \textbf{FN_pct} & \textbf{TN_pct} & \textbf{FP_pct} \\
+\midrule
+Sereum & 217±101ms & 49080 & 2447 & - & 100.0 & 0.0 & 99.94 & 0.06 \\
+TxSpector & 1.03s (99%<4s) & 3357 & 2447 & - & 99.36 & 0.64 & 99.97 & 0.03 \\
+Clue & 30±1,683ms & 2323 & 2447 & - & 99.61 & 0.39 & 99.98 & 0.02 \\
+EVMPatch & 0.74±0.41s & 3912 & 2447 & 1965 & 98.08 & 1.92 & 99.86 & 0.14 \\
+Elysium & 1.21±0.66s & 3506 & 2447 & 2044 & 98.74 & 1.26 & 99.88 & 0.12 \\
+AROC & 2.87±1.54s & 3104 & 2447 & 2018 & 98.93 & 1.07 & 99.9 & 0.1 \\
+SafePrompt & 6.4±3.9s & 2784 & 2447 & 2310 & 99.63 & 0.37 & 99.99 & 0.01 \\
+\bottomrule
+\end{tabular}
+\end{table}

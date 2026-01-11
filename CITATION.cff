@@ -1,8 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this artifact, please cite the SafePrompt CCS submission."
-title: "SafePrompt: Certified Detection and Repair for Solidity Smart Contracts"
-type: software
+message: "If you use this software, please cite the SafePrompt manuscript."
+title: "SafePrompt Artifact"
 authors:
-  - name: "Anonymous"
-version: "ccs2026-artifact"
+  - family-names: "Boahen"
+    given-names: "Edward"
 date-released: "2026-01-11"
+version: "0.1.0"
+license: "CC-BY-4.0"
